@@ -1,7 +1,7 @@
 Summary:	The Ultimate desktop environment
 Name:		uwm
 Version:	0.2.10
-Release:	0.a.2
+Release:	0.a.3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/udeproject/%{name}-%{version}a.tar.gz
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/%{name}/extras
 %dir %{_datadir}/%{name}/extras/tools
-%{_datadir}/%{name}/extras/tools/dirtomenu
-%{_datadir}/%{name}/extras/tools/dirtomenu-recursive
+%attr(755,root,root) %{_datadir}/%{name}/extras/tools/dirtomenu
+%attr(755,root,root) %{_datadir}/%{name}/extras/tools/dirtomenu-recursive
 
 %{_datadir}/%{name}/gfx
