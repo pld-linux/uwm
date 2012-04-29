@@ -1,11 +1,12 @@
 Summary:	The Ultimate desktop environment
 Name:		uwm
 Version:	0.2.10
-Release:	0.a.3
+Release:	0.a.4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/udeproject/%{name}-%{version}a.tar.gz
 # Source0-md5:	1370418179f56612ffe63d6ed0c89d13
+Source1:	%{name}.desktop
 URL:		http://udeproject.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,6 +30,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 
+install -d $RPM_BUILD_ROOT%{_datadir}/xsessions
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xsessions
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -37,6 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/uwm
+%{_datadir}/xsessions/uwm.desktop
 %dir %{_datadir}/uwm
 %dir %{_datadir}/%{name}/config
 %attr(755,root,root) %{_datadir}/%{name}/config/StartScript
